@@ -32,7 +32,21 @@ header.site-header {
 .menu { display: flex; gap: 16px; align-items: center; }
 .menu a { color: var(--muted); text-decoration: none; }
 .menu a:hover { color: var(--text); }
-.lang a { color: var(--accent); text-decoration: none; }
+.lang {
+  margin-left: 8px;
+}
+.lang a {
+  color: var(--accent) !important;
+  padding: 6px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.lang a:hover {
+  background: var(--accent);
+  color: var(--bg) !important;
+}
 
 main { padding-top: 24px; }
 
