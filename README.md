@@ -1,35 +1,57 @@
-Portfolio (JA/EN) — Yuhei Yamada
+Yuhei Yamada Portfolio (JA/EN)
+==============================
+
+Live Site
+---------
+- GitHub Pages: https://uhey77.github.io/Portfolio/
 
 Overview
-- Static, no build tools. Easy to host on GitHub Pages or Vercel.
-- Bilingual structure using folder routing: `/ja/...` and `/en/...`.
+--------
+- Static HTML/CSS/JS only — no build step required.
+- Bilingual routing via sibling directories: `/ja/...` and `/en/...`.
+- Shared design system with animated page transitions, particle background, and scroll-triggered reveals.
 
-Edit Me First
-- Update texts in `ja/` and `en/` pages.
-- Replace resume links with your actual PDFs in `resume/` (create folder).
-- Replace favicon in `assets/favicon.svg` if you like.
+Getting Started
+---------------
+1. Clone this repository and open the project root (`portfolio/`).
+2. Open `index.html` or any language page directly in your browser, _or_ run a lightweight static server:
+   ```bash
+   python3 -m http.server
+   ```
+   Then visit `http://localhost:8000`.
 
-Structure
-- `ja/`: Japanese pages (`index`, `works`, `about`, `contact`).
-- `en/`: English pages (same paths).
-- `assets/`: Shared CSS and assets.
-- `resume/`: Put `yuhei-yamada-ja.pdf` and `yuhei-yamada-en.pdf` here later.
+Content Editing
+---------------
+- Update copy within `ja/` and `en/` directories to reflect the latest profile information.
+- Replace placeholder counts inside the stats sections on both top pages (`ja/index.html`, `en/index.html`) when needed.
+- Populate the timeline entries in `about/` pages with real milestones.
+- Place your resumes in a `resume/` directory as `yuhei-yamada-ja.pdf` and `yuhei-yamada-en.pdf` and update links if the filenames differ.
+- Swap `assets/favicon.svg` with your own icon if desired.
 
-Local Preview
-- Open any HTML file in a browser.
-- Or use a static server, e.g. `python3 -m http.server` from `portfolio/`.
+Project Structure
+-----------------
+- `index.html`: Language selector (JA/EN) with transitions.
+- `ja/`, `en/`: Localized content (`index`, `works`, `about`, `contact`).
+- `assets/styles.css`: Global styling including background effects and components.
+- `assets/scripts.js`: Page transitions, particle background, reveal animations, and stat counters.
+- `resume/`: (Optional) place downloadable PDF resumes here.
 
-Deploy: GitHub Pages
-1) Create a repo and push this `portfolio/` directory (or make it the repo root).
-2) GitHub → Settings → Pages → Deploy from `main`/`root`.
-3) The site will be available at `https://<username>.github.io/<repo>/`.
+Deployment
+----------
+**GitHub Pages**
+1. Push this directory to your GitHub repository (keep it at the repo root for simplicity).
+2. In GitHub → Settings → Pages, choose branch `main` and folder `/ (root)`.
+3. Wait for GitHub Pages to publish. The deployed site will be available at `https://<username>.github.io/<repo>/` (currently hosted at https://uhey77.github.io/Portfolio/).
 
-Deploy: Vercel
-1) Import the repo in Vercel.
-2) Framework preset: `Other` (static). Output directory: `/`.
-3) Deploy. Add a custom domain later if desired.
+**Vercel or Other Static Hosts**
+1. Import the repository.
+2. Framework preset: `Other`.
+3. Output directory: `/`.
+4. Deploy and attach a custom domain if needed.
 
-Notes
-- Language toggle is simple: links between JA and EN counterparts.
-- Works page includes three placeholder cards to expand later.
- - Update email/GitHub in `contact` pages if needed.
+Notes & Maintenance
+-------------------
+- Language toggle buttons link directly to localized counterparts.
+- Works pages include placeholder cards — replace with real projects over time.
+- Contact pages aggregate GitHub, Zenn, Qiita, Kaggle, and email links.
+- Particle background and animations are lightweight but can be disabled by removing `assets/scripts.js` from each HTML page if necessary.
