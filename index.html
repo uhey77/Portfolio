@@ -70,6 +70,17 @@
       }
     }
   </style>
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      var hasExtension = path.split('/').pop().indexOf('.') !== -1;
+      if (!path.endsWith('/') && !hasExtension) {
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+        window.location.replace(path + '/' + search + hash);
+      }
+    })();
+  </script>
 </head>
 <body>
   <main class="container">
