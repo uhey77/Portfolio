@@ -9,9 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initPageTransitions() {
   const body = document.body;
-  body.classList.add('has-transition');
-  requestAnimationFrame(() => {
-    body.classList.add('is-ready');
+  const activate = () => {
+    body.classList.add('has-transition');
+    body.classList.remove('is-exiting');
+    requestAnimationFrame(() => {
+      body.classList.add('is-ready');
+    });
+  };
+
+  activate();
+
+  window.addEventListener('pageshow', () => {
+    body.classList.remove('is-exiting');
+    requestAnimationFrame(() => {
+      body.classList.add('is-ready');
+    });
   });
 
   document.querySelectorAll('a[href]').forEach((anchor) => {
