@@ -103,6 +103,14 @@ main { padding-top: 24px; }
 .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
 .card h3 { margin: 0 0 6px; font-size: 18px; }
 .card p { margin: 6px 0; color: var(--muted); }
+.card ul {
+  margin: 6px 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.card li + li {
+  margin-top: 4px;
+}
 
 .card.reveal,
 .section.reveal,
