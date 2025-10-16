@@ -6,23 +6,25 @@
   <title>Yuhei Yamada | Portfolio</title>
   <meta name="description" content="Portfolio website (JA/EN) for a junior software engineer." />
   <link rel="icon" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav">
+    <div class="container site-nav">
       <div class="brand"><a href="./">Yuhei Yamada</a></div>
-      <nav class="menu">
+      <div class="menu">
         <a href="works/">Works</a>
         <a href="about/">About</a>
         <a href="contact/">Contact</a>
         <span class="lang">| <a href="../ja/">JA</a></span>
-      </nav>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero" data-aos="fade-up">
       <h1>Yuhei Yamada</h1>
       <p class="meta">Tokyo University of Technology, Computer Science (AI major)</p>
       <p>I currently work on automating operations and conducting R&amp;D in the entertainment domain.</p>
@@ -30,47 +32,73 @@
       <p>My primary interests include Explainable AI (XAI), large language models (LLMs), and data science.</p>
       <p>I strive to learn new technologies continuously, share insights proactively, and I am a Kaggle Expert with multiple medals, including several golds.</p>
       <div class="cta-row">
-        <a class="btn primary" href="about/">View Profile</a>
-        <a class="btn" href="https://github.com/uhey77" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn" href="https://zenn.dev/yuheiyamada" target="_blank" rel="noreferrer">Zenn</a>
-        <a class="btn" href="https://qiita.com/uhey7" target="_blank" rel="noreferrer">Qiita</a>
-        <a class="btn" href="https://www.kaggle.com/pepushi" target="_blank" rel="noreferrer">Kaggle</a>
-        <a class="btn" href="mailto:pepushi514@gmail.com">Email</a>
+        <a class="btn primary waves-effect waves-light" href="about/">View Profile</a>
+        <a class="btn waves-effect waves-light" href="https://github.com/uhey77" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn waves-effect waves-light" href="https://zenn.dev/yuheiyamada" target="_blank" rel="noreferrer">Zenn</a>
+        <a class="btn waves-effect waves-light" href="https://qiita.com/uhey7" target="_blank" rel="noreferrer">Qiita</a>
+        <a class="btn waves-effect waves-light" href="https://www.kaggle.com/pepushi" target="_blank" rel="noreferrer">Kaggle</a>
+        <a class="btn waves-effect waves-light contact-trigger" href="contact/">Email</a>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Impact Metrics</h2>
-      <div class="stats">
-        <div class="stat-card">
-          <div class="stat-value" data-stat-value="10" data-stat-suffix="" data-stat-duration="1600">0</div>
-          <div class="stat-label">Kaggle medals (adjust as needed)</div>
+    <section class="section" data-aos="fade-up">
+      <h2>How I Deliver</h2>
+      <div class="row stat-row">
+        <div class="col s12 m6 l4">
+          <div class="stat-card card-panel hoverable" data-aos="fade-up" data-aos-delay="50">
+            <div class="stat-value">Problem-first scoping</div>
+            <div class="stat-label">Interview stakeholders, observe workflows, and align the team on PoC-to-production plans with measurable outcomes.</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" data-stat-value="4" data-stat-suffix="+" data-stat-duration="1700">0</div>
-          <div class="stat-label">Automation projects delivered</div>
+        <div class="col s12 m6 l4">
+          <div class="stat-card card-panel hoverable" data-aos="fade-up" data-aos-delay="150">
+            <div class="stat-value">Workflow design with LLMs</div>
+            <div class="stat-label">Map processes end-to-end and blend LLMs with classic ML to ship automation pipelines that stay safe and maintainable.</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" data-stat-value="20" data-stat-suffix="+" data-stat-duration="1800">0</div>
-          <div class="stat-label">Tech outputs (articles, talks, more)</div>
+        <div class="col s12 m6 l4">
+          <div class="stat-card card-panel hoverable" data-aos="fade-up" data-aos-delay="250">
+            <div class="stat-value">Continuous knowledge sharing</div>
+            <div class="stat-label">Publish write-ups and host sessions so teams capture learnings and make better engineering decisions together.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
+      <h2>Skill Map</h2>
+      <div class="card-panel hoverable chart-card">
+        <canvas id="skillChart" width="400" height="280" aria-label="Skill radar chart" role="img"></canvas>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <h2>Infrastructure &amp; Ops Toolchain</h2>
+      <div class="card-panel hoverable toolchain-card">
+        <p>I invest in the DevOps stack needed to keep AI products reliable and secure.</p>
+        <div class="chip">Git</div>
+        <div class="chip">GitLab CI</div>
+        <div class="chip">AWS (ECS / Lambda / S3)</div>
+        <div class="chip">Docker</div>
+        <div class="chip">Nginx</div>
+        <div class="chip">Certbot</div>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
       <h2>Latest</h2>
       <div class="grid">
-        <article class="card">
+        <article class="card hoverable" data-aos="fade-up" data-aos-delay="50">
           <h3>Case Study (Placeholder)</h3>
           <p>Outline problem → design → implementation → evaluation.</p>
           <p class="meta"><a href="works/">See details</a></p>
         </article>
-        <article class="card">
+        <article class="card hoverable" data-aos="fade-up" data-aos-delay="150">
           <h3>Learning Project (Placeholder)</h3>
           <p>Small web app or analysis notes.</p>
           <p class="meta"><a href="works/">See details</a></p>
         </article>
-        <article class="card">
+        <article class="card hoverable" data-aos="fade-up" data-aos-delay="250">
           <h3>Code Reading/Improvement (Placeholder)</h3>
           <p>Understanding existing repos and small improvements.</p>
           <p class="meta"><a href="works/">See details</a></p>
@@ -82,6 +110,10 @@
   <footer class="site-footer">
     <div class="container">© 2025 Yuhei Yamada</div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
   <script type="module" src="../assets/scripts.js"></script>
 </body>
 </html>

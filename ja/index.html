@@ -6,23 +6,25 @@
   <title>山田祐平 | ポートフォリオ</title>
   <meta name="description" content="ソフトウェアエンジニア志望のポートフォリオ（日本語/英語）。" />
   <link rel="icon" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="stylesheet" href="../assets/styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav">
+    <div class="container site-nav">
       <div class="brand"><a href="./">Yuhei Yamada</a></div>
-      <nav class="menu">
+      <div class="menu">
         <a href="works/">制作物</a>
         <a href="about/">プロフィール</a>
         <a href="contact/">連絡先</a>
         <span class="lang">| <a href="../en/">EN</a></span>
-      </nav>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero" data-aos="fade-up">
       <h1>山田祐平</h1>
       <p class="meta">東京工科大学 コンピュータサイエンス学部 人工知能専攻</p>
       <p>現在、エンタメ領域における業務自動化や研究開発に携わっています。</p>
@@ -30,47 +32,73 @@
       <p>主な関心領域はExplainable AI（XAI）、大規模言語モデル（LLM）、およびデータサイエンスです。</p>
       <p>常に新しい技術を学び、得た知見を積極的にアウトプットすることを心がけており、Kaggle Expertとして複数のメダル（うち数枚は金メダル）を獲得しています。</p>
       <div class="cta-row">
-        <a class="btn primary" href="about/">プロフィールを見る</a>
-        <a class="btn" href="https://github.com/uhey77" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="btn" href="https://zenn.dev/yuheiyamada" target="_blank" rel="noreferrer">Zenn</a>
-        <a class="btn" href="https://qiita.com/uhey7" target="_blank" rel="noreferrer">Qiita</a>
-        <a class="btn" href="https://www.kaggle.com/pepushi" target="_blank" rel="noreferrer">Kaggle</a>
-        <a class="btn" href="mailto:pepushi514@gmail.com">メールで連絡</a>
+        <a class="btn primary waves-effect waves-light" href="about/">プロフィールを見る</a>
+        <a class="btn waves-effect waves-light" href="https://github.com/uhey77" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn waves-effect waves-light" href="https://zenn.dev/yuheiyamada" target="_blank" rel="noreferrer">Zenn</a>
+        <a class="btn waves-effect waves-light" href="https://qiita.com/uhey7" target="_blank" rel="noreferrer">Qiita</a>
+        <a class="btn waves-effect waves-light" href="https://www.kaggle.com/pepushi" target="_blank" rel="noreferrer">Kaggle</a>
+        <a class="btn waves-effect waves-light contact-trigger" href="contact/">メールで連絡</a>
       </div>
     </section>
 
-    <section class="section">
-      <h2>注目の数字</h2>
-      <div class="stats">
-        <div class="stat-card">
-          <div class="stat-value" data-stat-value="10" data-stat-suffix="" data-stat-duration="1600">0</div>
-          <div class="stat-label">Kaggleメダル</div>
+    <section class="section" data-aos="fade-up">
+      <h2>価値提供へのこだわり</h2>
+      <div class="row stat-row">
+        <div class="col s12 m6 l4">
+          <div class="stat-card card-panel hoverable" data-aos="fade-up" data-aos-delay="50">
+            <div class="stat-value">課題ドリブンな要件整理</div>
+            <div class="stat-label">ヒアリングと現場観察でボトルネックを可視化し、PoC〜運用の実験計画と成果指標をチームで共有。</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" data-stat-value="4" data-stat-suffix="+" data-stat-duration="1700">0</div>
-          <div class="stat-label">自動化プロジェクト（AI活用）</div>
+        <div class="col s12 m6 l4">
+          <div class="stat-card card-panel hoverable" data-aos="fade-up" data-aos-delay="150">
+            <div class="stat-value">LLM × ワークフロー設計</div>
+            <div class="stat-label">業務プロセスを洗い出し、LLMと従来型MLを組み合わせた安全性と運用性の高い自動化パイプラインを設計。</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" data-stat-value="20" data-stat-suffix="+" data-stat-duration="1800">0</div>
-          <div class="stat-label">テックアウトプット（記事・登壇など）</div>
+        <div class="col s12 m6 l4">
+          <div class="stat-card card-panel hoverable" data-aos="fade-up" data-aos-delay="250">
+            <div class="stat-value">継続的なナレッジ共有</div>
+            <div class="stat-label">検証ログやベストプラクティスを記事・勉強会で発信し、チームの意思決定に活かせる知見を蓄積。</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
+      <h2>スキルマップ</h2>
+      <div class="card-panel hoverable chart-card">
+        <canvas id="skillChart" width="400" height="280" aria-label="スキルレベルレーダーチャート" role="img"></canvas>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+      <h2>インフラと運用のツールチェーン</h2>
+      <div class="card-panel hoverable toolchain-card">
+        <p>AIプロダクトを継続的に届けるための環境づくりにも注力しています。</p>
+        <div class="chip">Git</div>
+        <div class="chip">GitLab CI</div>
+        <div class="chip">AWS (ECS / Lambda / S3)</div>
+        <div class="chip">Docker</div>
+        <div class="chip">Nginx</div>
+        <div class="chip">Certbot</div>
+      </div>
+    </section>
+
+    <section class="section" data-aos="fade-up">
       <h2>最近のコンテンツ</h2>
       <div class="grid">
-        <article class="card">
+        <article class="card hoverable" data-aos="fade-up" data-aos-delay="50">
           <h3>ケーススタディ（プレースホルダ）</h3>
           <p>課題→設計→実装→検証の流れをまとめる予定。</p>
           <p class="meta"><a href="works/">詳細を見る</a></p>
         </article>
-        <article class="card">
+        <article class="card hoverable" data-aos="fade-up" data-aos-delay="150">
           <h3>学習プロジェクト（プレースホルダ）</h3>
           <p>小さなWebアプリや分析ノートの予定。</p>
           <p class="meta"><a href="works/">詳細を見る</a></p>
         </article>
-        <article class="card">
+        <article class="card hoverable" data-aos="fade-up" data-aos-delay="250">
           <h3>コードリーディング/改善（プレースホルダ）</h3>
           <p>既存リポの理解や小改善を予定。</p>
           <p class="meta"><a href="works/">詳細を見る</a></p>
@@ -82,6 +110,10 @@
   <footer class="site-footer">
     <div class="container">© 2025 Yuhei Yamada</div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
   <script type="module" src="../assets/scripts.js"></script>
 </body>
 </html>

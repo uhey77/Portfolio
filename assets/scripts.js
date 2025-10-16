@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initRevealObserver();
   initStatCounters();
   initParticleBackground();
+  initMaterializeComponents();
+  initAOSAnimations();
+  initSkillChart();
+  initJQueryHelpers();
 });
 
 function initPageTransitions() {
@@ -180,5 +184,114 @@ function initParticleBackground() {
   window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
+  });
+}
+
+function initMaterializeComponents() {
+  if (!window.M) return;
+  window.M.AutoInit();
+}
+
+function initAOSAnimations() {
+  if (!window.AOS) return;
+  window.AOS.init({
+    once: true,
+    offset: 120,
+    easing: 'ease-out-cubic',
+    duration: 700,
+  });
+}
+
+function initSkillChart() {
+  const canvas = document.getElementById('skillChart');
+  if (!canvas || !window.Chart || canvas.dataset.chartInitialized) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const useEnglish = document.documentElement.lang === 'en';
+  const labels = useEnglish
+    ? ['XAI', 'LLM orchestration', 'MLOps', 'Data storytelling', 'Backend', 'Frontend']
+    : ['XAI', 'LLMオーケストレーション', 'MLOps', 'データストーリーテリング', 'バックエンド', 'フロントエンド'];
+
+  const data = useEnglish
+    ? [90, 85, 80, 75, 70, 65]
+    : [90, 85, 80, 75, 70, 65];
+
+  new window.Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: useEnglish ? 'Comfort level (%)' : '習熟度 (%)',
+          data,
+          borderWidth: 2,
+          borderColor: 'rgba(108, 195, 255, 0.8)',
+          backgroundColor: 'rgba(108, 195, 255, 0.2)',
+          pointBackgroundColor: '#6cc3ff',
+          pointBorderColor: '#ffffff',
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        r: {
+          suggestedMin: 40,
+          suggestedMax: 100,
+          ticks: {
+            display: false,
+          },
+          angleLines: {
+            color: 'rgba(255,255,255,0.15)',
+          },
+          grid: {
+            color: 'rgba(255,255,255,0.15)',
+          },
+          pointLabels: {
+            color: '#d0e6ff',
+            font: {
+              size: 14,
+              family: '"Roboto", "Noto Sans JP", sans-serif',
+            },
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#d0e6ff',
+          },
+        },
+      },
+    },
+  });
+
+  canvas.dataset.chartInitialized = 'true';
+}
+
+function initJQueryHelpers() {
+  if (!window.jQuery) return;
+  const $ = window.jQuery;
+  const $header = $('.site-header');
+
+  const handleScroll = () => {
+    $header.toggleClass('is-scrolled', $(window).scrollTop() > 24);
+  };
+
+  $(window).on('scroll', handleScroll);
+  handleScroll();
+
+  $('.contact-trigger').on('click', function (event) {
+    const targetHref = $(this).attr('href');
+    if (!targetHref) return;
+    event.preventDefault();
+    if (window.M && window.M.toast) {
+      window.M.toast({ html: window.document.documentElement.lang === 'en' ? 'Opening contact page…' : '連絡先ページを開きます…', displayLength: 1200 });
+    }
+    setTimeout(() => {
+      window.location.href = targetHref;
+    }, 280);
   });
 }
