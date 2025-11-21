@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAOSAnimations();
   initSkillChart();
   initJQueryHelpers();
+  initGitHubContent();
 });
 
 function initPageTransitions() {
@@ -294,4 +295,101 @@ function initJQueryHelpers() {
       window.location.href = targetHref;
     }, 280);
   });
+}
+
+function initTypingAnimation() {
+  const title = document.querySelector('.hero h1');
+  if (!title) return;
+
+  const text = title.textContent;
+  title.textContent = '';
+
+  let i = 0;
+  const type = () => {
+    if (i < text.length) {
+      title.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 100 + Math.random() * 50);
+    }
+  };
+
+  setTimeout(type, 500);
+}
+
+function initTiltEffect() {
+  const cards = document.querySelectorAll('.card, .stat-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+function initGitHubContent() {
+  const container = document.getElementById('github-content');
+  if (!container) return;
+
+  const username = 'uhey77';
+  const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&direction=desc&per_page=3`;
+
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('GitHub API request failed');
+      }
+      return response.json();
+    })
+    .then(repos => {
+      container.innerHTML = ''; // Clear loading indicator
+
+      if (repos.length === 0) {
+        container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--muted);">リポジトリが見つかりませんでした。</p>';
+        return;
+      }
+
+      repos.forEach((repo, index) => {
+        const card = document.createElement('article');
+        card.className = 'card hoverable';
+        card.setAttribute('data-aos', 'fade-up');
+        card.setAttribute('data-aos-delay', (index * 100 + 50).toString());
+
+        const description = repo.description || '説明はありません。';
+        const language = repo.language ? `<span class="chip" style="font-size: 12px; padding: 4px 8px; height: auto; line-height: 1.2;">${repo.language}</span>` : '';
+        const stars = repo.stargazers_count > 0 ? `<span style="margin-left: 8px; font-size: 14px; color: var(--accent);">★ ${repo.stargazers_count}</span>` : '';
+
+        card.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${description}</p>
+          <div style="margin-top: 12px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+            ${language}
+            ${stars}
+          </div>
+          <p class="meta" style="margin-top: 16px;"><a href="${repo.html_url}" target="_blank" rel="noreferrer">GitHubで見る</a></p>
+        `;
+
+        container.appendChild(card);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching GitHub repos:', error);
+      container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--muted);">
+        <p>読み込みに失敗しました。</p>
+        <p style="font-size: 12px; margin-top: 8px;">Error: ${error.message}</p>
+      </div>`;
+    });
 }
