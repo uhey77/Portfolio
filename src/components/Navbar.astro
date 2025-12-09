@@ -1,0 +1,96 @@
+---
+interface Props {
+  lang: 'ja' | 'en';
+}
+
+const { lang } = Astro.props;
+
+const isJa = lang === 'ja';
+
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
+
+const contactText = isJa ? 'お問い合わせ' : 'Contact';
+const switchLang = isJa ? 'EN' : 'JA';
+const switchLink = isJa ? '/en/' : '/ja/';
+const switchLabel = isJa ? 'English version' : 'Japanese version';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <nav id="site-nav" class="transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="#hero" class="text-lg font-semibold tracking-wide">Portfolio</a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          {links.map(link => (
+            <a href={link.href} class="hover:text-blue-600 transition-colors">{link.label}</a>
+          ))}
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden md:inline-flex px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">
+            {contactText}
+          </a>
+          <a href={switchLink} class="hidden md:inline-flex px-3 py-2 border border-blue-600 text-blue-600 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors" aria-label={switchLabel}>
+            {switchLang}
+          </a>
+          
+          <!-- Mobile Toggle -->
+          <button id="mobile-toggle" class="md:hidden p-2" aria-label="Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col gap-3 text-sm font-medium">
+          {links.map(link => (
+            <a href={link.href} class="px-2 py-2 rounded hover:bg-blue-50">{link.label}</a>
+          ))}
+          <a href={switchLink} class="px-2 py-2 rounded hover:bg-blue-50">{isJa ? 'English' : '日本語'}</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  function handleScroll() {
+    if (window.scrollY > 8) {
+      nav?.classList.add('nav-scrolled');
+    } else {
+      nav?.classList.remove('nav-scrolled');
+    }
+  }
+
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', (!expanded).toString());
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+</script>

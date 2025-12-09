@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.hero-bg {
+    background: radial-gradient(circle at 25% 20%, rgba(59, 130, 246, 0.18), transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.16), transparent 42%),
+        linear-gradient(180deg, #f8fbff 0%, #eef2ff 50%, #e0e7ff 100%);
+}
+
+.nav-scrolled {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.card-shadow {
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.gradient-box {
+    background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.1)),
+        linear-gradient(145deg, #e0e7ff, #f1f5f9);
+}

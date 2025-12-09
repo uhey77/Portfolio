@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Yuhei Yamada | Portfolio" description="Select Language">
+  <main class="container mx-auto px-4 min-h-[70vh] flex flex-col items-center justify-center text-center">
+    <div class="space-y-4">
+      <h1 class="text-5xl font-bold bg-gradient-to-br from-blue-600 to-indigo-700 bg-clip-text text-transparent">
+        Yuhei Yamada
+      </h1>
+      <p class="text-gray-600 text-lg">ポートフォリオサイト / Portfolio Website</p>
+      
+      <div class="flex flex-wrap justify-center gap-6 mt-8">
+        <a href="/ja/" class="group flex flex-col items-center p-8 bg-white border border-gray-200 rounded-2xl shadow-lg hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 min-w-[200px]">
+          <span class="text-4xl mb-2">🇯🇵</span>
+          <span class="text-xl font-bold text-gray-900 group-hover:text-blue-600">日本語</span>
+          <span class="text-sm text-gray-500">Japanese Version</span>
+        </a>
+        <a href="/en/" class="group flex flex-col items-center p-8 bg-white border border-gray-200 rounded-2xl shadow-lg hover:border-blue-500 hover:-translate-y-1 transition-all duration-300 min-w-[200px]">
+          <span class="text-4xl mb-2">🇺🇸</span>
+          <span class="text-xl font-bold text-gray-900 group-hover:text-blue-600">English</span>
+          <span class="text-sm text-gray-500">English Version</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-gray-200 mt-auto bg-transparent text-gray-500 py-6 text-center">
+    <div class="container mx-auto">Yuhei Yamada</div>
+  </footer>
+</Layout>
+
+<script>
+  // Redirect logic based on browser language if visiting root directly
+  (function () {
+    const path = window.location.pathname;
+    const hasExtension = path.split('/').pop().indexOf('.') !== -1;
+    if (!path.endsWith('/') && !hasExtension) {
+      const search = window.location.search || '';
+      const hash = window.location.hash || '';
+      // Optional: Add auto-redirect logic here if desired, otherwise user chooses.
+      // window.location.replace(path + '/' + search + hash);
+    }
+  })();
+</script>
