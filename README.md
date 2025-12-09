@@ -1,51 +1,60 @@
-# Yuhei Yamada Portfolio (JA/EN)
+# ポートフォリオサイト (Astro版)
 
-[日本語版はこちら](README.ja.md)
+これは [Astro](https://astro.build) フレームワークを使用して構築された、個人的なポートフォリオサイトです。
+以前の静的HTMLサイトから移行し、コンポーネント指向の開発と型安全性（TypeScript）、そして高速なパフォーマンスを実現しています。
 
-## Live Site
-- GitHub Pages: https://uhey77.github.io/Portfolio/
+## 🚀 プロジェクトの始め方
 
-## Overview
-- Static HTML/CSS/JS only — no build step required
-- Bilingual routing via sibling directories: `/ja/...` and `/en/...`
-- Shared design system with animated page transitions, particle background, and scroll-triggered reveals
+このプロジェクトを実行するには、[Node.js](https://nodejs.org/) がインストールされている必要があります。
 
-## Getting Started
-1. Clone this repository and open the project root (`portfolio/`).
-2. Open `index.html` or any language page directly in your browser, _or_ run a lightweight static server:
-   ```bash
-   python3 -m http.server
-   ```
-   Then visit `http://localhost:8000`.
+### 1. 依存関係のインストール
 
-## Content Editing
-- Update copy within `ja/` and `en/` directories to reflect the latest profile information.
-- Replace placeholder counts inside the stats sections on both top pages (`ja/index.html`, `en/index.html`) when needed.
-- Populate the timeline entries in `about/` pages with real milestones.
-- Place your resumes in a `resume/` directory as `yuhei-yamada-ja.pdf` and `yuhei-yamada-en.pdf` and update links if the filenames differ.
-- Swap `assets/favicon.svg` with your own icon if desired.
+プロジェクトのルートディレクトリで以下のコマンドを実行し、必要なパッケージをインストールしてください。
 
-## Project Structure
-- `index.html`: Language selector (JA/EN) with transitions
-- `ja/`, `en/`: Localized content (`index`, `works`, `about`, `contact`)
-- `assets/styles.css`: Global styling including background effects and components
-- `assets/scripts.js`: Page transitions, particle background, reveal animations, and stat counters
-- `resume/`: (Optional) place downloadable PDF resumes here
+```bash
+npm install
+```
 
-## Deployment
-### GitHub Pages
-1. Push this directory to your GitHub repository (keep it at the repo root for simplicity).
-2. In GitHub → Settings → Pages, choose branch `main` and folder `/ (root)`.
-3. Wait for GitHub Pages to publish. The deployed site will be available at `https://<username>.github.io/<repo>/` (currently hosted at https://uhey77.github.io/Portfolio/).
+### 2. 開発サーバーの起動
 
-### Vercel or Other Static Hosts
-1. Import the repository.
-2. Framework preset: `Other`.
-3. Output directory: `/`.
-4. Deploy and attach a custom domain if needed.
+ローカルでの開発用にサーバーを起動します。
 
-## Notes & Maintenance
-- Language toggle buttons link directly to localized counterparts.
-- Works pages include placeholder cards — replace with real projects over time.
-- Contact pages aggregate GitHub, Zenn, Qiita, Kaggle, and email links.
-- Particle background and animations are lightweight but can be disabled by removing `assets/scripts.js` from each HTML page if necessary.
+```bash
+npm run dev
+```
+
+コマンド実行後、ブラウザで `http://localhost:4321` にアクセスすると、サイトが表示されます。
+ファイルの変更は自動的に検知・反映されます。
+
+## 🛠️ プロジェクト構成
+
+主なディレクトリ構成は以下の通りです。
+
+```text
+/
+├── public/           # 静的アセット（画像、フォントなど）
+├── src/
+│   ├── components/   # 再利用可能なUIコンポーネント (Navbar, Footerなど)
+│   ├── layouts/      # ページの共通レイアウト
+│   ├── pages/        # ページ定義 (ファイルベースルーティング)
+│   │   ├── index.astro       # 言語選択ページ
+│   │   ├── ja/index.astro    # 日本語版トップ
+│   │   └── en/index.astro    # 英語版トップ
+│   └── styles/       # グローバルスタイル (Tailwind CSS設定含む)
+└── package.json
+```
+
+## 📦 本番ビルド
+
+本番環境向けに静的ファイルを生成するには、以下のコマンドを実行します。
+
+```bash
+npm run build
+```
+
+生成されたファイルは `dist/` ディレクトリに出力されます。
+
+## 🎨 スタイリング
+
+[Tailwind CSS](https://tailwindcss.com/) (v4) を使用しています。
+スタイルは各コンポーネント内、または `src/styles/global.css` で定義されています。
