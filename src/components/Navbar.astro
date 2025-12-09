@@ -16,7 +16,8 @@ const links = [
 
 const contactText = isJa ? 'お問い合わせ' : 'Contact';
 const switchLang = isJa ? 'EN' : 'JA';
-const switchLink = isJa ? '/en/' : '/ja/';
+const base = import.meta.env.BASE_URL;
+const switchLink = isJa ? `${base}/en/` : `${base}/ja/`;
 const switchLabel = isJa ? 'English version' : 'Japanese version';
 ---
 
