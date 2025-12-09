@@ -5,6 +5,7 @@
   --muted: #a9b0c3;
   --accent: #6cc3ff;
   --accent-2: #9ef5c1;
+  --accent-3: #8d7dff;
   --border: #232a3a;
 }
 
@@ -55,7 +56,7 @@ body.has-transition.is-exiting {
   opacity: 0;
 }
 
-.container { max-width: 960px; margin: 0 auto; padding: 24px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 24px; }
 
 header.site-header {
   position: sticky;
@@ -345,4 +346,192 @@ footer .container { padding: 16px 24px; color: var(--muted); font-size: 14px; }
 
 @media (max-width: 520px) {
   .hero h1 { font-size: 26px; }
+}
+
+/* Profile layout */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  padding: 32px 0 48px;
+}
+
+.profile-card {
+  background: linear-gradient(180deg, rgba(22, 28, 45, 0.9), rgba(17, 22, 35, 0.9));
+  border: 1px solid rgba(108, 195, 255, 0.25);
+  border-radius: 16px;
+  text-align: center;
+  padding: 28px 20px 32px;
+  position: sticky;
+  top: 96px;
+  box-shadow: 0 12px 30px rgba(9, 14, 24, 0.45);
+}
+
+.profile-avatar {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-3);
+  background: radial-gradient(circle at 30% 30%, rgba(108, 195, 255, 0.35), rgba(17, 22, 35, 0.7));
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  box-shadow: 0 0 0 8px rgba(108, 195, 255, 0.1);
+}
+
+.profile-card h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+  color: var(--accent-3);
+}
+
+.profile-role {
+  margin: 2px 0 4px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.profile-meta {
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+
+.profile-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0 20px;
+}
+
+.profile-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profile-icon:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: rgba(108, 195, 255, 0.16);
+}
+
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.info-card {
+  background: rgba(18, 23, 35, 0.9);
+  border: 1px solid rgba(108, 195, 255, 0.18);
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: 0 12px 32px rgba(9, 14, 24, 0.35);
+}
+
+.info-card h2,
+.info-card h3 {
+  margin: 0 0 10px;
+  color: var(--accent-3);
+  letter-spacing: 0.2px;
+}
+
+.about-card p {
+  margin: 10px 0;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.about-card .muted {
+  color: var(--muted);
+}
+
+.profile-subgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.interest-list {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.interest-list li + li {
+  margin-top: 6px;
+}
+
+.education-card {
+  position: relative;
+}
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.edu-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 6px rgba(108, 195, 255, 0.12);
+}
+
+.edu-degree {
+  margin: 0 0 2px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.edu-detail {
+  margin: 0 0 4px;
+  color: var(--muted);
+}
+
+.edu-year {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+@media (max-width: 960px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    position: static;
+  }
+}
+
+@media (max-width: 520px) {
+  .profile-card h1 { font-size: 24px; }
+  .profile-avatar { width: 150px; height: 150px; }
 }

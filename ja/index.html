@@ -5,67 +5,416 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>山田祐平 | ポートフォリオ</title>
-  <meta name="description" content="ソフトウェアエンジニア志望のポートフォリオ（日本語/英語）。" />
-  <link rel="icon" href="../assets/favicon.svg" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-  <link rel="stylesheet" href="../assets/styles.css" />
+  <meta name="description" content="AIエンジニア / 学生 / リサーチャーとしてのポートフォリオサイト。スキル、プロジェクト、連絡先を掲載。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    .hero-bg {
+      background: radial-gradient(circle at 25% 20%, rgba(59, 130, 246, 0.18), transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.16), transparent 42%),
+        linear-gradient(180deg, #f8fbff 0%, #eef2ff 50%, #e0e7ff 100%);
+    }
+
+    .nav-scrolled {
+      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .card-shadow {
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .gradient-box {
+      background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.1)),
+        linear-gradient(145deg, #e0e7ff, #f1f5f9);
+    }
+  </style>
 </head>
 
-<body>
-  <header class="site-header">
-    <div class="container site-nav">
-      <div class="brand"><a href="./">Yuhei Yamada</a></div>
-      <div class="menu">
-        <a href="works/">制作物</a>
-        <a href="about/">プロフィール</a>
-        <a href="contact/">連絡先</a>
-        <span class="lang">| <a href="../en/">EN</a></span>
+<body class="hero-bg text-gray-900">
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <nav id="site-nav" class="transition-all duration-300">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <a href="#hero" class="text-lg font-semibold tracking-wide">Portfolio</a>
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
+            <a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
+            <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
+            <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <a href="#contact" class="hidden md:inline-flex px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">お問い合わせ</a>
+            <button id="mobile-toggle" class="md:hidden p-2">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden pb-4">
+          <div class="flex flex-col gap-3 text-sm font-medium">
+            <a href="#about" class="px-2 py-2 rounded hover:bg-blue-50">About</a>
+            <a href="#skills" class="px-2 py-2 rounded hover:bg-blue-50">Skills</a>
+            <a href="#projects" class="px-2 py-2 rounded hover:bg-blue-50">Projects</a>
+            <a href="#contact" class="px-2 py-2 rounded hover:bg-blue-50">Contact</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </nav>
   </header>
 
-  <main class="container">
-    <section class="hero" data-aos="fade-up">
-      <h1>山田 祐平</h1>
-      <p class="meta">東京工科大学 コンピュータサイエンス学部 人工知能専攻</p>
-      <p>現在、エンタメ領域における業務自動化や研究開発に携わっています。</p>
-      <p>過去には、教育分野で自動作問・自動採点・文書校閲システムの開発を担当し、AI技術を活用した効率化と品質向上に取り組みました。</p>
-      <p>主な関心領域はExplainable AI（XAI）、大規模言語モデル（LLM）、およびデータサイエンスです。</p>
-      <p>常に新しい技術を学び、得た知見を積極的にアウトプットすることを心がけており、Kaggle Expertとして複数のメダル（うち数枚は金メダル）を獲得しています。</p>
-      <div class="cta-row">
-        <a class="btn primary waves-effect waves-light" href="about/">プロフィールを見る</a>
-        <a class="btn waves-effect waves-light" href="https://github.com/uhey77" target="_blank"
-          rel="noreferrer">GitHub</a>
-        <a class="btn waves-effect waves-light" href="https://zenn.dev/yuheiyamada" target="_blank"
-          rel="noreferrer">Zenn</a>
-        <a class="btn waves-effect waves-light" href="https://qiita.com/uhey7" target="_blank"
-          rel="noreferrer">Qiita</a>
-        <a class="btn waves-effect waves-light" href="https://www.kaggle.com/pepushi" target="_blank"
-          rel="noreferrer">Kaggle</a>
-        <a class="btn waves-effect waves-light contact-trigger" href="contact/">メールで連絡</a>
+  <main class="pt-16">
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-16 pb-12">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full mx-auto mb-8 flex items-center justify-center text-white text-5xl font-semibold">
+          YY
+        </div>
+        <h1 class="text-4xl md:text-6xl font-semibold mb-4 leading-tight">
+          こんにちは、<br />
+          <span class="text-blue-600">山田 祐平</span> です
+        </h1>
+        <p class="text-xl text-gray-700 mb-4">
+          AI Engineer / Student / Researcher
+        </p>
+        <p class="text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          機械学習とディープラーニングに情熱を持つ学生エンジニアです。最新のAI技術を活用し、実世界の問題解決や自動化に取り組んでいます。
+        </p>
+        <div class="flex items-center justify-center gap-4 mb-8 flex-wrap">
+          <a href="#contact" class="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors shadow-sm">
+            お問い合わせ
+          </a>
+          <a href="#projects" class="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition-colors">
+            作品を見る
+          </a>
+        </div>
+        <div class="flex items-center justify-center gap-5 text-gray-600">
+          <a href="https://github.com/uhey77" target="_blank" rel="noreferrer" class="hover:text-blue-600 transition-colors" aria-label="GitHub">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a10 10 0 0 0-3.162 19.495c.5.093.682-.217.682-.483 0-.237-.009-.866-.014-1.7-2.776.603-3.362-1.338-3.362-1.338-.454-1.153-1.11-1.46-1.11-1.46-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.833.092-.647.35-1.088.636-1.338-2.216-.252-4.548-1.108-4.548-4.932 0-1.089.389-1.98 1.029-2.677-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.022A9.564 9.564 0 0 1 12 6.844a9.56 9.56 0 0 1 2.504.337c1.909-1.291 2.748-1.022 2.748-1.022.545 1.378.202 2.395.1 2.648.64.697 1.028 1.588 1.028 2.677 0 3.833-2.336 4.677-4.559 4.923.359.309.679.919.679 1.852 0 1.337-.012 2.418-.012 2.747 0 .268.18.58.688.482A10 10 0 0 0 12 2Z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/yuhei-yamada" target="_blank" rel="noreferrer" class="hover:text-blue-600 transition-colors" aria-label="LinkedIn">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.48 23.5h4.999V7.99H.48V23.5Zm7.838-15.51H3.33v15.51h4.988v-8.2c0-4.59 5.927-4.96 5.927 0v8.2h4.99v-9.77c0-7.38-8.482-7.11-10.917-3.48V7.99Z" />
+            </svg>
+          </a>
+          <a href="https://zenn.dev/yuheiyamada" target="_blank" rel="noreferrer" class="hover:text-blue-600 transition-colors text-sm font-semibold" aria-label="Zenn">Zenn</a>
+          <a href="mailto:your.email@example.com" class="hover:text-blue-600 transition-colors" aria-label="Email">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4 6 8 6 8-6m-14 12h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2Z" />
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="section" data-aos="fade-up">
-      <h2>最近のコンテンツ (GitHub)</h2>
-      <div id="github-content" class="grid">
-        <div class="loading-indicator"
-          style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--muted);">
-          読み込み中...
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl text-center font-semibold mb-12">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="aspect-square gradient-box rounded-2xl card-shadow"></div>
+          <div>
+            <h3 class="text-2xl font-semibold mb-4">自己紹介</h3>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              現在、大学でAI技術を学び、MLOpsやLLMを活用したプロジェクトに取り組んでいます。
+              エンタメ領域の自動化や、データ活用による業務改善に興味があります。
+            </p>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Kaggle Expertとして継続的にアウトプットしつつ、学術・実務の両面からスキルを磨いています。
+              チーム開発や知見共有を大切にし、ユーザーに価値を届ける実装を心がけています。
+            </p>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+              <div class="border-l-4 border-blue-600 pl-4">
+                <div class="text-3xl text-blue-600 font-semibold mb-1">15+</div>
+                <div class="text-gray-600 text-sm">AIプロジェクト</div>
+              </div>
+              <div class="border-l-4 border-blue-600 pl-4">
+                <div class="text-3xl text-blue-600 font-semibold mb-1">3+</div>
+                <div class="text-gray-600 text-sm">研究論文</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl text-center font-semibold mb-4">Skills</h2>
+        <p class="text-center text-gray-600 mb-12">AI・機械学習に関する技術スキルと専門知識</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">🧠</div>
+            <h3 class="text-xl font-semibold mb-2">機械学習・深層学習</h3>
+            <p class="text-gray-600">PyTorch, TensorFlow, Scikit-learn</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">📊</div>
+            <h3 class="text-xl font-semibold mb-2">データ分析</h3>
+            <p class="text-gray-600">Pandas, NumPy, Matplotlib, Jupyter</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">📝</div>
+            <h3 class="text-xl font-semibold mb-2">自然言語処理</h3>
+            <p class="text-gray-600">Transformers, BERT, GPT, LangChain</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">🖼️</div>
+            <h3 class="text-xl font-semibold mb-2">コンピュータビジョン</h3>
+            <p class="text-gray-600">OpenCV, YOLO, Segmentation, GANs</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">💻</div>
+            <h3 class="text-xl font-semibold mb-2">プログラミング</h3>
+            <p class="text-gray-600">Python, JavaScript, C++, SQL</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">🚀</div>
+            <h3 class="text-xl font-semibold mb-2">MLOps・デプロイ</h3>
+            <p class="text-gray-600">Docker, FastAPI, AWS, MLflow</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl text-center font-semibold mb-4">Projects</h2>
+        <p class="text-center text-gray-600 mb-12">これまでに開発したAI・機械学習プロジェクト</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
+              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop" alt="画像認識システム" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">画像認識システム</h3>
+              <p class="text-gray-600 text-sm mb-4">CNNを用いた高精度画像分類。転移学習で少量データでも高精度を実現。</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">PyTorch</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">ResNet</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">CV</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm text-gray-600">
+                <span class="hover:text-blue-600 cursor-pointer">Code</span>
+                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
+              </div>
+            </div>
+          </article>
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
+              <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&auto=format&fit=crop" alt="チャットボットAI" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">チャットボットAI</h3>
+              <p class="text-gray-600 text-sm mb-4">Transformerベースの対話AI。文脈を理解し自然な会話を実現。</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">NLP</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Transformers</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">FastAPI</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm text-gray-600">
+                <span class="hover:text-blue-600 cursor-pointer">Code</span>
+                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
+              </div>
+            </div>
+          </article>
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop" alt="時系列予測モデル" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">時系列予測モデル</h3>
+              <p class="text-gray-600 text-sm mb-4">LSTMとAttentionを組み合わせた株価予測システム。多特徴量を統合。</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">LSTM</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Time Series</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">TensorFlow</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm text-gray-600">
+                <span class="hover:text-blue-600 cursor-pointer">Code</span>
+                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
+              </div>
+            </div>
+          </article>
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop" alt="物体検出アプリ" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">物体検出アプリ</h3>
+              <p class="text-gray-600 text-sm mb-4">YOLOv8でリアルタイム検出。Webアプリとして実装し実用的な精度を達成。</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">YOLO</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">OpenCV</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">React</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm text-gray-600">
+                <span class="hover:text-blue-600 cursor-pointer">Code</span>
+                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
+              </div>
+            </div>
+          </article>
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop" alt="感情分析ツール" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">感情分析ツール</h3>
+              <p class="text-gray-600 text-sm mb-4">SNS投稿から感情を分析。BERTのファインチューニングで高精度を実現。</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">BERT</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Sentiment</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Hugging Face</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm text-gray-600">
+                <span class="hover:text-blue-600 cursor-pointer">Code</span>
+                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
+              </div>
+            </div>
+          </article>
+          <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
+            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop" alt="レコメンドシステム" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2">レコメンドシステム</h3>
+              <p class="text-gray-600 text-sm mb-4">協調フィルタリングと深層学習を組み合わせて精度を向上。</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Recsys</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Neural Net</span>
+                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Python</span>
+              </div>
+              <div class="flex items-center gap-4 text-sm text-gray-600">
+                <span class="hover:text-blue-600 cursor-pointer">Code</span>
+                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl text-center font-semibold mb-4">Contact</h2>
+        <p class="text-center text-gray-600 mb-12">お気軽にお問い合わせください</p>
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">お問い合わせ情報</h3>
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-blue-600">
+                  ✉︎
+                </div>
+                <div>
+                  <div class="text-sm text-gray-500 mb-1">Email</div>
+                  <div>your.email@example.com</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-blue-600">
+                  ☎
+                </div>
+                <div>
+                  <div class="text-sm text-gray-500 mb-1">電話</div>
+                  <div>+81 (0)12-3456-7890</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 text-blue-600">
+                  📍
+                </div>
+                <div>
+                  <div class="text-sm text-gray-500 mb-1">所在地</div>
+                  <div>東京都、日本</div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 p-6 bg-blue-50 rounded-xl">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                プロジェクトのご相談、採用に関するお問い合わせなど、お気軽にご連絡ください。
+                通常24時間以内にご返信いたします。
+              </p>
+            </div>
+          </div>
+          <div>
+            <form class="space-y-6">
+              <div>
+                <label for="name" class="block mb-2 font-medium">お名前</label>
+                <input type="text" id="name" name="name" required placeholder="山田太郎"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+              </div>
+              <div>
+                <label for="email" class="block mb-2 font-medium">メールアドレス</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+              </div>
+              <div>
+                <label for="message" class="block mb-2 font-medium">メッセージ</label>
+                <textarea id="message" name="message" rows="5" required placeholder="お問い合わせ内容をご記入ください"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+              </div>
+              <button type="submit"
+                class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                送信する
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">山田 祐平</div>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center text-sm">
+      <p>&copy; 2025 山田祐平. All rights reserved.</p>
+    </div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
-  <script src="../assets/scripts.js" defer></script>
+
+  <script>
+    const nav = document.getElementById('site-nav');
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+
+    function handleScroll() {
+      if (window.scrollY > 8) {
+        nav.classList.add('nav-scrolled');
+      } else {
+        nav.classList.remove('nav-scrolled');
+      }
+    }
+
+    function closeMenu() {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle?.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', (!expanded).toString());
+    });
+
+    menu?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  </script>
 </body>
 
 </html>
