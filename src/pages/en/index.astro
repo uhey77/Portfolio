@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
-<Layout title="Yuhei Yamada | Portfolio" description="Portfolio of Yuhei Yamada - AI engineer / student / researcher. Skills, projects, and contact information." lang="en">
+<Layout title="Yuhei Yamada | Portfolio" description="Portfolio of Yuhei Yamada - AI engineer / student / researcher. Education, projects, and contact information." lang="en">
   <Navbar lang="en" />
 
   <main class="pt-16">
@@ -106,48 +106,30 @@ import Footer from '../../components/Footer.astro';
       </div>
     </section>
 
-    <section id="skills" class="py-20 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-4xl text-center font-semibold mb-4">Skills</h2>
-        <p class="text-center text-gray-600 mb-12">Technical skills and expertise in AI and machine learning</p>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">🧠
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Machine Learning & Deep Learning</h3>
-            <p class="text-gray-600">PyTorch, TensorFlow, Scikit-learn</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">📊
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Data Analysis</h3>
-            <p class="text-gray-600">Pandas, NumPy, Matplotlib, Jupyter</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">📝
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Natural Language Processing</h3>
-            <p class="text-gray-600">Transformers, BERT, GPT, LangChain</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">
-              🖼️</div>
-            <h3 class="text-xl font-semibold mb-2">Computer Vision</h3>
-            <p class="text-gray-600">OpenCV, YOLO, Segmentation, GANs</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">💻
-            </div>
-            <h3 class="text-xl font-semibold mb-2">Programming</h3>
-            <p class="text-gray-600">Python, JavaScript, C++, SQL</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 text-blue-600 text-xl">🚀
-            </div>
-            <h3 class="text-xl font-semibold mb-2">MLOps & Deployment</h3>
-            <p class="text-gray-600">Docker, FastAPI, AWS, MLflow</p>
-          </div>
-        </div>
+    <section id="education" class="py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-4xl text-center font-semibold mb-4">Education</h2>
+        <p class="text-center text-gray-600 mb-12">Academic timeline</p>
+        <ol class="relative border-l border-blue-200 max-w-2xl mx-auto">
+          <li class="mb-10 ml-8">
+            <span
+              class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
+            <time class="block text-sm text-gray-500">2021 - 2023</time>
+            <h3 class="text-xl font-semibold mt-1">
+              <a href="https://www.neec.ac.jp/" target="_blank" rel="noreferrer"
+                class="text-blue-600 hover:text-blue-700 transition-colors">Nihon Kogakuin College, IT College, AI Systems Department</a>
+            </h3>
+          </li>
+          <li class="ml-8">
+            <span
+              class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
+            <time class="block text-sm text-gray-500">2023 - Present</time>
+            <h3 class="text-xl font-semibold mt-1">
+              <a href="https://www.teu.ac.jp/" target="_blank" rel="noreferrer"
+                class="text-blue-600 hover:text-blue-700 transition-colors">Tokyo University of Technology, School of Computer Science, Artificial Intelligence Major</a>
+            </h3>
+          </li>
+        </ol>
       </div>
     </section>
 
