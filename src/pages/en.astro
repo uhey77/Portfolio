@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
 ---
 
-<Layout title="Yuhei Yamada | Portfolio" description="Portfolio of Yuhei Yamada - AI engineer / student / researcher. Education, projects, and contact information." lang="en">
+<Layout title="Yuhei Yamada | Portfolio" description="Portfolio of Yuhei Yamada - AI engineer / student / researcher. Education and contact information." lang="en">
   <Navbar lang="en" />
 
   <main class="pt-16">
@@ -27,10 +27,6 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
           <a href="#contact"
             class="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors shadow-sm">
             Contact
-          </a>
-          <a href="#projects"
-            class="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition-colors">
-            View Projects
           </a>
         </div>
         <div class="flex items-center justify-center gap-6 text-gray-600">
@@ -104,7 +100,6 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
     <section id="education" class="py-20 bg-gray-50">
       <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-4xl text-center font-semibold mb-4">Education</h2>
-        <p class="text-center text-gray-600 mb-12">Academic timeline</p>
         <ol class="relative border-l border-blue-200 max-w-2xl mx-auto">
           <li class="mb-10 ml-8">
             <span
@@ -134,141 +129,6 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
             </h3>
           </li>
         </ol>
-      </div>
-    </section>
-
-    <section id="projects" class="py-20 bg-white">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-4xl text-center font-semibold mb-4">Projects</h2>
-        <p class="text-center text-gray-600 mb-12">AI and machine learning projects I’ve built</p>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <article
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
-            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
-              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop"
-                alt="Image Recognition System" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Image Recognition System</h3>
-              <p class="text-gray-600 text-sm mb-4">High-accuracy image classification using CNNs and transfer learning
-                for strong results with limited data.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">PyTorch</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">ResNet</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">CV</span>
-              </div>
-              <div class="flex items-center gap-4 text-sm text-gray-600">
-                <span class="hover:text-blue-600 cursor-pointer">Code</span>
-                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
-              </div>
-            </div>
-          </article>
-          <article
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
-            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
-              <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&auto=format&fit=crop"
-                alt="Chatbot AI" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Chatbot AI</h3>
-              <p class="text-gray-600 text-sm mb-4">Transformer-based conversational AI that understands context and
-                generates natural responses.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">NLP</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Transformers</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">FastAPI</span>
-              </div>
-              <div class="flex items-center gap-4 text-sm text-gray-600">
-                <span class="hover:text-blue-600 cursor-pointer">Code</span>
-                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
-              </div>
-            </div>
-          </article>
-          <article
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
-            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
-                alt="Time Series Forecasting Model" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Time Series Forecasting Model</h3>
-              <p class="text-gray-600 text-sm mb-4">Stock prediction with LSTM and attention, integrating multiple
-                features for robust forecasts.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">LSTM</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Time Series</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">TensorFlow</span>
-              </div>
-              <div class="flex items-center gap-4 text-sm text-gray-600">
-                <span class="hover:text-blue-600 cursor-pointer">Code</span>
-                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
-              </div>
-            </div>
-          </article>
-          <article
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
-            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
-              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop"
-                alt="Object Detection App" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Object Detection App</h3>
-              <p class="text-gray-600 text-sm mb-4">Real-time detection with YOLOv8, shipped as a web app with practical
-                accuracy.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">YOLO</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">OpenCV</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">React</span>
-              </div>
-              <div class="flex items-center gap-4 text-sm text-gray-600">
-                <span class="hover:text-blue-600 cursor-pointer">Code</span>
-                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
-              </div>
-            </div>
-          </article>
-          <article
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
-            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
-              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop"
-                alt="Sentiment Analysis Tool" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Sentiment Analysis Tool</h3>
-              <p class="text-gray-600 text-sm mb-4">Analyzes sentiment in social posts with fine-tuned BERT for high
-                accuracy.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">BERT</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Sentiment</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Hugging Face</span>
-              </div>
-              <div class="flex items-center gap-4 text-sm text-gray-600">
-                <span class="hover:text-blue-600 cursor-pointer">Code</span>
-                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
-              </div>
-            </div>
-          </article>
-          <article
-            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100">
-            <div class="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop"
-                alt="Recommendation System" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2">Recommendation System</h3>
-              <p class="text-gray-600 text-sm mb-4">Combines collaborative filtering with deep learning to improve
-                accuracy.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Recsys</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Neural Net</span>
-                <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs">Python</span>
-              </div>
-              <div class="flex items-center gap-4 text-sm text-gray-600">
-                <span class="hover:text-blue-600 cursor-pointer">Code</span>
-                <span class="hover:text-blue-600 cursor-pointer">Live Demo</span>
-              </div>
-            </div>
-          </article>
-        </div>
       </div>
     </section>
 
