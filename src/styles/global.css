@@ -8,6 +8,11 @@ body {
     font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
+html:not([data-language="en"]) [data-lang-content="en"],
+html[data-language="en"] [data-lang-content="ja"] {
+    display: none;
+}
+
 .hero-bg {
     background: radial-gradient(circle at 25% 20%, rgba(59, 130, 246, 0.18), transparent 40%),
         radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.16), transparent 42%),

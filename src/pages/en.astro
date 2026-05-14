@@ -4,9 +4,54 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
+
+const publicationGroups = [
+  {
+    name: 'IIAI-AAI-Winter 2025',
+    venue: '2025 19th IIAI International Congress on Advanced Applied Informatics (IIAI-AAI-Winter)',
+    meta: 'Phuket, Thailand / Dec. 2025',
+    publications: [
+      {
+        title: 'Real-Time Animation of User-Drawn Images via Smoothed Skeleton Time-Series Data',
+        authors: ['Yuhei Yamada', 'Takafumi Nakanishi'],
+        pages: 'pp. 227-232',
+        role: 'First Author',
+        url: 'https://ieeexplore.ieee.org/document/11418345',
+      },
+      {
+        title: 'Hacking the Black Box: Prompt Injection for Visualizing LLM Reasoning as Graphs',
+        authors: ['Takumi Sugimoto', 'Hiryu Kimura', 'Yuhei Yamada', 'Tomoki Akiyama', 'Minato Hojo', 'Takafumi Nakanishi'],
+        pages: 'pp. 303-306',
+        role: 'Co-author',
+        url: 'https://ieeexplore.ieee.org/document/11418350',
+      },
+    ],
+  },
+  {
+    name: 'AAIML 2026',
+    venue: '2026 International Conference on Advances in Artificial Intelligence and Machine Learning (AAIML)',
+    meta: 'Tokyo, Japan / Mar. 2026',
+    publications: [
+      {
+        title: 'Autonomous Knowledge Pipeline for AI Research: LLM Agents for Automatic Paper Curation, Multimodal Media Generation, and Online Publishing',
+        authors: ['Yuhei Yamada', 'Takafumi Nakanishi'],
+        pages: 'pp. 357-366',
+        role: 'First Author',
+        url: 'https://ieeexplore.ieee.org/document/11498163',
+      },
+      {
+        title: 'A State-Driven Planning Framework for Research Dialogue Agents with Selective Retrieval-Augmented Generation',
+        authors: ['Hiryu Kimura', 'Yuhei Yamada', 'Takafumi Nakanishi'],
+        pages: 'pp. 347-356',
+        role: 'Co-author',
+        url: 'https://ieeexplore.ieee.org/document/11498180',
+      },
+    ],
+  },
+];
 ---
 
-<Layout title="Yuhei Yamada | Portfolio" description="Portfolio of Yuhei Yamada - AI engineer / student / researcher. Education and contact information." lang="en">
+<Layout title="Yuhei Yamada | Portfolio" description="Portfolio of Yuhei Yamada - AI engineer / student / researcher. Research publications, education, and contact information." lang="en">
   <Navbar lang="en" />
 
   <main class="pt-16">
@@ -104,7 +149,7 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
           <li class="mb-10 ml-8">
             <span
               class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
-            <time class="block text-sm text-gray-500">Next year (Planned)</time>
+            <time class="block text-sm text-gray-500">2026/04 - now</time>
             <h3 class="text-xl font-semibold mt-1">
               <a href="https://www.teu.ac.jp/grad/index.html" target="_blank" rel="noreferrer"
                 class="text-blue-600 hover:text-blue-700 transition-colors whitespace-nowrap">Tokyo University of Technology Graduate School of Bionics, Computer and Media Sciences, Computer Science Program</a>
@@ -113,7 +158,7 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
           <li class="mb-10 ml-8">
             <span
               class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
-            <time class="block text-sm text-gray-500">2023/04 - now</time>
+            <time class="block text-sm text-gray-500">2023/04 - 2026/03</time>
             <h3 class="text-xl font-semibold mt-1">
               <a href="https://www.teu.ac.jp/" target="_blank" rel="noreferrer"
                 class="text-blue-600 hover:text-blue-700 transition-colors">Tokyo University of Technology, School of Computer Science, Artificial Intelligence Major</a>
@@ -150,7 +195,59 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
       </div>
     </section>
 
-    <section id="awards" class="py-20 bg-gray-50">
+    <section id="research" class="py-20 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl text-center font-semibold mb-4">Research</h2>
+        <div class="space-y-10 mt-12">
+          {publicationGroups.map(group => (
+            <div>
+              <div class="mb-5">
+                <p class="text-sm font-semibold uppercase tracking-wider text-blue-600">{group.name}</p>
+                <h3 class="text-2xl font-semibold mt-1">{group.venue}</h3>
+                <p class="text-gray-500 text-sm mt-1">{group.meta}</p>
+              </div>
+              <div class="grid gap-4">
+                {group.publications.map(publication => (
+                  <article class="rounded-lg border border-gray-200 bg-white p-5 card-shadow">
+                    <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                      <div>
+                        <h4 class="text-xl font-semibold leading-snug">
+                          <a href={publication.url} target="_blank" rel="noreferrer"
+                            class="text-gray-900 hover:text-blue-600 transition-colors">
+                            {publication.title}
+                          </a>
+                        </h4>
+                        <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                          {publication.authors.map((author, index) => (
+                            <Fragment>
+                              <span class:list={[author === 'Yuhei Yamada' && 'font-semibold text-gray-900']}>{author}</span>{index < publication.authors.length - 1 ? ', ' : ''}
+                            </Fragment>
+                          ))}
+                        </p>
+                        <p class="text-gray-500 text-sm mt-2">{publication.pages}</p>
+                      </div>
+                      <div class="flex items-center gap-2 shrink-0">
+                        <span class={publication.role === 'First Author'
+                          ? 'inline-flex rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700'
+                          : 'inline-flex rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600'}>
+                          {publication.role}
+                        </span>
+                        <a href={publication.url} target="_blank" rel="noreferrer"
+                          class="inline-flex rounded-full border border-blue-600 px-3 py-1 text-xs font-semibold text-blue-600 hover:bg-blue-50 transition-colors">
+                          IEEE Xplore
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="py-20 bg-white">
       <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-4xl text-center font-semibold mb-4">Awards</h2>
         <ol class="relative border-l border-blue-200 max-w-2xl mx-auto">
@@ -194,7 +291,7 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
       </div>
     </section>
 
-    <section id="contact" class="py-20 bg-white">
+    <section id="contact" class="py-20 bg-gray-50">
       <div class="max-w-5xl mx-auto px-4">
         <h2 class="text-4xl text-center font-semibold mb-4">Contact</h2>
         <p class="text-center text-gray-600 mb-12">Feel free to reach out</p>
