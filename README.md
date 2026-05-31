@@ -1,60 +1,9 @@
-# ポートフォリオサイト
+# Portfolio
 
-これは [Astro](https://astro.build) フレームワークを使用して構築された、個人的なポートフォリオサイトです。
-コンポーネント指向の開発と型安全性（TypeScript）、そして高速なパフォーマンスを実現しています。
+AI、研究、コンペティション実績、職歴、連絡先をまとめたサイトです。
 
-## 🚀 プロジェクトの始め方
+https://uhey77.github.io/Portfolio/
 
-このプロジェクトを実行するには、[Node.js](https://nodejs.org/) がインストールされている必要があります。
+## Tech Stack
 
-### 1. 依存関係のインストール
-
-プロジェクトのルートディレクトリで以下のコマンドを実行し、必要なパッケージをインストールしてください。
-
-```bash
-npm install
-```
-
-### 2. 開発サーバーの起動
-
-ローカルでの開発用にサーバーを起動します。
-
-```bash
-npm run dev
-```
-
-コマンド実行後、ブラウザで `http://localhost:4321` にアクセスすると、サイトが表示されます。
-ファイルの変更は自動的に検知・反映されます。
-
-## 🛠️ プロジェクト構成
-
-主なディレクトリ構成は以下の通りです。
-
-```text
-/
-├── public/           # 静的アセット（画像、フォントなど）
-├── src/
-│   ├── components/   # 再利用可能なUIコンポーネント (Navbar, Footerなど)
-│   ├── layouts/      # ページの共通レイアウト
-│   ├── pages/        # ページ定義 (ファイルベースルーティング)
-│   │   ├── index.astro       # 言語選択ページ
-│   │   ├── ja/index.astro    # 日本語版トップ
-│   │   └── en/index.astro    # 英語版トップ
-│   └── styles/       # グローバルスタイル (Tailwind CSS設定含む)
-└── package.json
-```
-
-## 📦 本番ビルド
-
-本番環境向けに静的ファイルを生成するには、以下のコマンドを実行します。
-
-```bash
-npm run build
-```
-
-生成されたファイルは `dist/` ディレクトリに出力されます。
-
-## 🎨 スタイリング
-
-[Tailwind CSS](https://tailwindcss.com/) (v4) を使用しています。
-スタイルは各コンポーネント内、または `src/styles/global.css` で定義されています。
+Astro 5 / TypeScript / Tailwind CSS v4 / GitHub Pages
