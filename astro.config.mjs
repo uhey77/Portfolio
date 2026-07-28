@@ -7,7 +7,15 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://uhey77.github.io',
   base: '/Portfolio',
+  i18n: {
+    locales: ['ja', 'en'],
+    defaultLocale: 'ja',
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: true,
+    },
+  },
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
 });
