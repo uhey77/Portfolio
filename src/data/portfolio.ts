@@ -1,9 +1,10 @@
 import type { LocalizedText } from '../i18n/types';
 
-interface TimelineItem {
+export interface TimelineItem {
   time: string;
   href?: string;
   title: LocalizedText;
+  description?: LocalizedText;
 }
 
 interface Publication {

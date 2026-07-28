@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from './Navbar.astro';
 import Footer from './Footer.astro';
 import ContactForm from './ContactForm.astro';
+import Timeline from './Timeline.astro';
 import { awards, educationItems, experienceItems, publicationGroups } from '../data/portfolio';
 import { translations } from '../i18n/translations';
 import type { Locale } from '../i18n/types';
@@ -104,41 +105,14 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
     <section id="education" class="py-20 bg-gray-50">
       <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-4xl text-center font-semibold mb-4">{t.sections.education}</h2>
-        <ol class="relative border-l border-blue-200 max-w-2xl mx-auto">
-          {educationItems.map((item, index) => (
-            <li class:list={[index < educationItems.length - 1 ? 'mb-10 ml-8' : 'ml-8']}>
-              <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
-              <time class="block text-sm text-gray-500">{item.time}</time>
-              <h3 class="text-xl font-semibold mt-1">
-                <a href={item.href} target="_blank" rel="noreferrer"
-                  class="text-blue-600 hover:text-blue-700 transition-colors">
-                  {item.title[lang]}
-                </a>
-              </h3>
-            </li>
-          ))}
-        </ol>
+        <Timeline items={educationItems} lang={lang} />
       </div>
     </section>
 
     <section id="experience" class="py-20 bg-white">
       <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-4xl text-center font-semibold mb-4">{t.sections.experience}</h2>
-        <ol class="relative border-l border-blue-200 max-w-2xl mx-auto">
-          {experienceItems.map(item => (
-            <li class="ml-8">
-              <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
-              <time class="block text-sm text-gray-500">{item.time}</time>
-              <h3 class="text-xl font-semibold mt-1">
-                <a href={item.href} target="_blank" rel="noreferrer"
-                  class="text-blue-600 hover:text-blue-700 transition-colors">
-                  {item.title[lang]}
-                </a>
-              </h3>
-              <p class="text-gray-600 text-sm mt-2">{item.description[lang]}</p>
-            </li>
-          ))}
-        </ol>
+        <Timeline items={experienceItems} lang={lang} />
       </div>
     </section>
 
@@ -197,24 +171,7 @@ const profileImageSrc = `${import.meta.env.BASE_URL}/top_picture.jpg`;
     <section id="awards" class="py-20 bg-white">
       <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-4xl text-center font-semibold mb-4">{t.sections.awards}</h2>
-        <ol class="relative border-l border-blue-200 max-w-2xl mx-auto">
-          {awards.map((award, index) => (
-            <li class:list={[index < awards.length - 1 ? 'mb-10 ml-8' : 'ml-8']}>
-              <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
-              <time class="block text-sm text-gray-500">{award.time}</time>
-              <h3 class="text-xl font-semibold mt-1">
-                {award.href ? (
-                  <a href={award.href} target="_blank" rel="noreferrer"
-                    class="text-blue-600 hover:text-blue-700 transition-colors">
-                    {award.title[lang]}
-                  </a>
-                ) : (
-                  award.title[lang]
-                )}
-              </h3>
-            </li>
-          ))}
-        </ol>
+        <Timeline items={awards} lang={lang} />
       </div>
     </section>
 
