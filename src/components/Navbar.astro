@@ -1,27 +1,25 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { translations } from '../i18n/translations';
+import type { Locale } from '../i18n/types';
+
 interface Props {
-  lang: 'ja' | 'en';
-  singlePage?: boolean;
+  lang: Locale;
 }
 
-const { lang, singlePage = false } = Astro.props;
-
-const isJa = lang === 'ja';
+const { lang } = Astro.props;
+const t = translations[lang];
+const switchLocale: Locale = lang === 'ja' ? 'en' : 'ja';
+const switchLink = getRelativeLocaleUrl(switchLocale, '');
 
 const links = [
-  { href: '#about', label: 'About' },
-  { href: '#education', label: 'Education' },
-  { href: '#experience', label: 'Work Experience' },
-  { href: '#research', label: 'Research' },
-  { href: '#awards', label: 'Awards' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#about', label: t.navigation.about },
+  { href: '#education', label: t.navigation.education },
+  { href: '#experience', label: t.navigation.experience },
+  { href: '#research', label: t.navigation.research },
+  { href: '#awards', label: t.navigation.awards },
+  { href: '#contact', label: t.sections.contact },
 ];
-
-const contactText = isJa ? 'お問い合わせ' : 'Contact';
-const switchLang = isJa ? 'EN' : 'JA';
-const base = import.meta.env.BASE_URL;
-const switchLink = isJa ? `${base}/en/` : `${base}/ja/`;
-const switchLabel = isJa ? 'English version' : 'Japanese version';
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50">
@@ -29,8 +27,7 @@ const switchLabel = isJa ? 'English version' : 'Japanese version';
     <div class="max-w-6xl mx-auto px-4">
       <div class="flex items-center justify-between h-16">
         <a href="#hero" class="text-lg font-semibold tracking-wide">Portfolio</a>
-        
-        <!-- Desktop Menu -->
+
         <div class="hidden md:flex items-center gap-8 text-sm font-medium">
           {links.map(link => (
             <a href={link.href} class="hover:text-blue-600 transition-colors">{link.label}</a>
@@ -39,25 +36,19 @@ const switchLabel = isJa ? 'English version' : 'Japanese version';
 
         <div class="flex items-center gap-3">
           <a href="#contact" class="hidden md:inline-flex px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">
-            {singlePage ? (
-              <>
-                <span data-lang-content="ja">お問い合わせ</span>
-                <span data-lang-content="en">Contact</span>
-              </>
-            ) : contactText}
+            {t.navigation.contact}
           </a>
-          {singlePage ? (
-            <button type="button" data-language-toggle class="hidden md:inline-flex px-3 py-2 border border-blue-600 text-blue-600 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors" aria-label="Switch to English">
-              EN
-            </button>
-          ) : (
-            <a href={switchLink} class="hidden md:inline-flex px-3 py-2 border border-blue-600 text-blue-600 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors" aria-label={switchLabel}>
-              {switchLang}
-            </a>
-          )}
-          
-          <!-- Mobile Toggle -->
-          <button id="mobile-toggle" class="md:hidden p-2" aria-label="Menu">
+          <a
+            href={switchLink}
+            hreflang={switchLocale}
+            lang={switchLocale}
+            class="hidden md:inline-flex px-3 py-2 border border-blue-600 text-blue-600 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors"
+            aria-label={t.navigation.switchLanguage}
+          >
+            {t.navigation.switchLanguageShort}
+          </a>
+
+          <button id="mobile-toggle" class="md:hidden p-2" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -65,19 +56,14 @@ const switchLabel = isJa ? 'English version' : 'Japanese version';
         </div>
       </div>
 
-      <!-- Mobile Menu -->
       <div id="mobile-menu" class="hidden md:hidden pb-4">
         <div class="flex flex-col gap-3 text-sm font-medium">
           {links.map(link => (
             <a href={link.href} class="px-2 py-2 rounded hover:bg-blue-50">{link.label}</a>
           ))}
-          {singlePage ? (
-            <button type="button" data-language-toggle class="text-left px-2 py-2 rounded hover:bg-blue-50" aria-label="Switch to English">
-              EN
-            </button>
-          ) : (
-            <a href={switchLink} class="px-2 py-2 rounded hover:bg-blue-50">{isJa ? 'English' : '日本語'}</a>
-          )}
+          <a href={switchLink} hreflang={switchLocale} lang={switchLocale} class="px-2 py-2 rounded hover:bg-blue-50">
+            {t.navigation.switchLanguage}
+          </a>
         </div>
       </div>
     </div>
@@ -88,8 +74,6 @@ const switchLabel = isJa ? 'English version' : 'Japanese version';
   const nav = document.getElementById('site-nav');
   const toggle = document.getElementById('mobile-toggle');
   const menu = document.getElementById('mobile-menu');
-  const languageToggles = document.querySelectorAll('[data-language-toggle]');
-  const placeholderTargets = document.querySelectorAll('[data-placeholder-ja][data-placeholder-en]');
 
   function handleScroll() {
     if (window.scrollY > 8) {
@@ -104,27 +88,6 @@ const switchLabel = isJa ? 'English version' : 'Japanese version';
     toggle?.setAttribute('aria-expanded', 'false');
   }
 
-  function applyLanguage(lang) {
-    const nextToggleLabel = lang === 'ja' ? 'EN' : 'JA';
-    const nextAriaLabel = lang === 'ja' ? 'Switch to English' : '日本語に切り替え';
-
-    document.documentElement.lang = lang;
-    document.documentElement.dataset.language = lang;
-    languageToggles.forEach((button) => {
-      button.textContent = nextToggleLabel;
-      button.setAttribute('aria-label', nextAriaLabel);
-    });
-    placeholderTargets.forEach((target) => {
-      const placeholder = lang === 'ja'
-        ? target.getAttribute('data-placeholder-ja')
-        : target.getAttribute('data-placeholder-en');
-      if (placeholder) {
-        target.setAttribute('placeholder', placeholder);
-      }
-    });
-    localStorage.setItem('portfolio-language', lang);
-  }
-
   toggle?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
@@ -137,16 +100,4 @@ const switchLabel = isJa ? 'English version' : 'Japanese version';
 
   window.addEventListener('scroll', handleScroll);
   handleScroll();
-
-  if (languageToggles.length > 0) {
-    const savedLanguage = localStorage.getItem('portfolio-language');
-    applyLanguage(savedLanguage === 'en' ? 'en' : 'ja');
-    languageToggles.forEach((button) => {
-      button.addEventListener('click', () => {
-        const currentLanguage = document.documentElement.dataset.language === 'en' ? 'en' : 'ja';
-        applyLanguage(currentLanguage === 'ja' ? 'en' : 'ja');
-        closeMenu();
-      });
-    });
-  }
 </script>
