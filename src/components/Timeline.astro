@@ -1,0 +1,33 @@
+---
+import type { TimelineItem } from '../data/portfolio';
+import type { Locale } from '../i18n/types';
+
+interface Props {
+  items: TimelineItem[];
+  lang: Locale;
+}
+
+const { items, lang } = Astro.props;
+---
+
+<ol class="relative border-l border-blue-200 max-w-2xl mx-auto">
+  {items.map((item, index) => (
+    <li class:list={[index < items.length - 1 ? 'mb-10 ml-8' : 'ml-8']}>
+      <span class="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 ring-4 ring-blue-100"></span>
+      <time class="block text-sm text-gray-500">{item.time}</time>
+      <h3 class="text-xl font-semibold mt-1">
+        {item.href ? (
+          <a href={item.href} target="_blank" rel="noreferrer"
+            class="text-blue-600 hover:text-blue-700 transition-colors">
+            {item.title[lang]}
+          </a>
+        ) : (
+          item.title[lang]
+        )}
+      </h3>
+      {item.description && (
+        <p class="text-gray-600 text-sm mt-2">{item.description[lang]}</p>
+      )}
+    </li>
+  ))}
+</ol>
