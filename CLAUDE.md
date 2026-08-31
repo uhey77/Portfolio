@@ -4,13 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Bilingual (Japanese/English) personal portfolio site built with Astro 5, Tailwind CSS v4, and TypeScript. Deployed to GitHub Pages at `https://uhey77.github.io/Portfolio`.
+Bilingual (Japanese/English) personal portfolio site built with Astro 5, Tailwind CSS v4, and TypeScript. Deployed to Cloudflare Workers at `https://portfolio.yuheiyamada.workers.dev`.
 
 ## Commands
 
-- `npm run dev` — Start dev server (localhost:4321, hot reload)
-- `npm run build` — Production build to `dist/`
-- `npm run preview` — Preview production build locally
+- `task dev` — Start dev server (localhost:4321, hot reload)
+- `task build` — Production build to `dist/`
+- `task preview` — Build and preview production output locally
+- `task deploy` — Verify Wrangler authentication, build, and deploy to Cloudflare Workers
+- `task deploy:dry-run` — Build and validate the Cloudflare deployment without publishing
 
 No test runner or linter is configured.
 
@@ -31,8 +33,8 @@ No test runner or linter is configured.
 
 ## Deployment
 
-GitHub Actions workflow (`.github/workflows/deploy.yml`) auto-deploys to GitHub Pages on push to `main`. Uses `withastro/action@v3`.
+Cloudflare Workers Static Assets deployment is configured in `wrangler.jsonc`. Cloudflare Builds uses `npm run build` and `npx wrangler deploy`; use `task deploy` for a manual deployment.
 
-**Important config**: `astro.config.mjs` sets `site: 'https://uhey77.github.io'` and `base: '/Portfolio'` — all paths must account for this base path (use `import.meta.env.BASE_URL` for assets in `public/`).
+**Important config**: `astro.config.mjs` sets `site: 'https://portfolio.yuheiyamada.workers.dev'` and `base: '/'`. `public/_redirects` contains redirects handled natively by Cloudflare Workers Static Assets.
 
-`PUBLIC_CONTACT_FORM_ENDPOINT` is injected at build time from the repository variable of the same name; it is not committed (`.env` is gitignored).
+`PUBLIC_CONTACT_FORM_ENDPOINT` is injected at build time from a Cloudflare Builds variable of the same name; it is not committed (`.env` is gitignored).
