@@ -1,0 +1,36 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+    silent: true
+
+  dev:
+    desc: Start the Astro development server
+    cmds:
+      - npm run dev
+
+  build:
+    desc: Build the production site
+    cmds:
+      - npm run build
+
+  preview:
+    desc: Build and preview the production site locally
+    deps:
+      - build
+    cmds:
+      - npm run preview
+
+  deploy:
+    desc: Build and deploy to Cloudflare Workers
+    cmds:
+      - npx wrangler whoami
+      - npm run deploy
+
+  deploy:dry-run:
+    desc: Build and validate a Cloudflare deployment without publishing
+    cmds:
+      - npm run deploy:dry-run
