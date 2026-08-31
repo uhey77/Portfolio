@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:dry-run": "npm run build && wrangler deploy --dry-run",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -12,5 +14,8 @@
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.16.4",
     "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "wrangler": "^4.127.1"
   }
 }
