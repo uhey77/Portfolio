@@ -106,6 +106,30 @@ export const experienceItems: Array<TimelineItem & { description: LocalizedText 
       en: 'AI Engineer (Internship)',
     },
   },
+  {
+    time: '2026/08',
+    href: 'https://www.ntt-east.co.jp/',
+    title: {
+      ja: 'NTT東日本株式会社',
+      en: 'NTT EAST, Inc.',
+    },
+    description: {
+      ja: 'AIエンジニア（インターンシップ）',
+      en: 'AI Engineer (Internship)',
+    },
+  },
+  {
+    time: '2026/06',
+    href: 'https://www.works-hi.co.jp/',
+    title: {
+      ja: '株式会社Works Human Intelligence',
+      en: 'Works Human Intelligence Co., Ltd.',
+    },
+    description: {
+      ja: 'エンジニア（インターンシップ）',
+      en: 'Engineer (Internship)',
+    },
+  },
 ];
 
 export const awards: TimelineItem[] = [
