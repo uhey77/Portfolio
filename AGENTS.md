@@ -17,8 +17,8 @@ No test runner or linter is configured.
 ## Architecture
 
 - **Astro 5** static site with file-based routing (`src/pages/`)
-- **i18n**: Astro's built-in i18n routing, configured in `astro.config.mjs` (locales `ja` (default) and `en`, `prefixDefaultLocale: true`). `src/pages/index.astro` is intentionally empty — the router redirects `/` to `/ja/`.
-- **Pages**: `src/pages/ja/index.astro` and `src/pages/en/index.astro` are thin wrappers that render `<PortfolioPage lang="…" />`. All page markup lives in `src/components/PortfolioPage.astro`.
+- **i18n**: Astro's built-in i18n routing, configured in `astro.config.mjs` (locales `ja` (default) and `en`, `prefixDefaultLocale: false`). Japanese is served at `/`, English at `/en/`, and `public/_redirects` permanently redirects the legacy `/ja` routes to `/`.
+- **Pages**: `src/pages/index.astro` and `src/pages/en/index.astro` are thin wrappers that render `<PortfolioPage lang="…" />`. All page markup lives in `src/components/PortfolioPage.astro`.
 - **Content lives in data, not markup**:
   - `src/i18n/translations.ts` — UI strings per locale, typed by `PortfolioTranslations` (`src/i18n/types.ts`)
   - `src/data/portfolio.ts` — education, work experience, awards, publications, and social links. Localized fields use `LocalizedText` (`Record<Locale, string>`).
