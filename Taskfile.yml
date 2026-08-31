@@ -2,35 +2,35 @@ version: '3'
 
 tasks:
   default:
-    desc: List available tasks
+    desc: 利用可能なタスク一覧を表示
     cmds:
       - task --list
     silent: true
 
   dev:
-    desc: Start the Astro development server
+    desc: Astroの開発サーバーを起動
     cmds:
       - npm run dev
 
   build:
-    desc: Build the production site
+    desc: 本番用サイトをビルド
     cmds:
       - npm run build
 
   preview:
-    desc: Build and preview the production site locally
+    desc: 本番用サイトをビルドしてローカルで確認
     deps:
       - build
     cmds:
       - npm run preview
 
   deploy:
-    desc: Build and deploy to Cloudflare Workers
+    desc: ビルドしてCloudflare Workersへデプロイ
     cmds:
       - npx wrangler whoami
       - npm run deploy
 
   deploy:dry-run:
-    desc: Build and validate a Cloudflare deployment without publishing
+    desc: 公開せずにCloudflareへのデプロイ内容を検証
     cmds:
       - npm run deploy:dry-run

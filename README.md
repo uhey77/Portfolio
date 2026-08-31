@@ -1,12 +1,12 @@
-# Portfolio
+# ポートフォリオ
 
 https://portfolio.yuheiyamada.workers.dev/
 
-## Tech Stack
+## 技術スタック
 
 Astro 5 / TypeScript / Tailwind CSS v4 / Cloudflare Workers
 
-## Commands
+## コマンド
 
 ```sh
 task dev             # 開発サーバーを起動
