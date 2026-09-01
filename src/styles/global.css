@@ -23,8 +23,3 @@ body {
 .card-shadow {
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
-
-.gradient-box {
-    background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.1)),
-        linear-gradient(145deg, #e0e7ff, #f1f5f9);
-}
