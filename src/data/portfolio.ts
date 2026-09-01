@@ -23,7 +23,7 @@ interface PublicationGroup {
   publications: Publication[];
 }
 
-export interface SocialLink {
+interface SocialLink {
   label: string;
   href: string;
   iconPath: string;
