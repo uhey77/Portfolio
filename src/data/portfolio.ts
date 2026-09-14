@@ -95,6 +95,18 @@ export const educationItems: TimelineItem[] = [
 
 export const experienceItems: Array<TimelineItem & { description: LocalizedText }> = [
   {
+    time: '2026/09 - now',
+    href: 'https://www.softbank.jp/',
+    title: {
+      ja: 'ソフトバンク株式会社',
+      en: 'SoftBank Corp.',
+    },
+    description: {
+      ja: 'AIエンジニア（インターンシップ）',
+      en: 'AI Engineer (Internship)',
+    },
+  },
+  {
     time: '2024/08 - now',
     href: 'https://neoai.jp/',
     title: {
