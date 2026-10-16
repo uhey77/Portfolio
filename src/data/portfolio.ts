@@ -107,7 +107,7 @@ export const experienceItems: Array<TimelineItem & { description: LocalizedText 
     },
   },
   {
-    time: '2024/08 - now',
+    time: '2024/08 - 2026/10',
     href: 'https://neoai.jp/',
     title: {
       ja: '株式会社neoAI',
